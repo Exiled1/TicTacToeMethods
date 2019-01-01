@@ -8,6 +8,11 @@ public class TicTacToeMethods {
     // Sets all the elements in board to zero
     // tested by the unit test TicTacToeTestClearBoard    
     public static void clearBoard(int [][] board) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                board[i][j] = 0;
+            }
+        }
     }
     
     // Walks through the board, if there is any entry with value 0
@@ -16,6 +21,13 @@ public class TicTacToeMethods {
     // Tested by TicTacToeTestCheckForFullBoard
     public static boolean checkForFullBoard(int [][] board) {
         // You will need to change this to return the correct value
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if(board[i][j] == 0){
+                    return false;
+                }
+            }
+        }
         return true;
     }
 
@@ -35,7 +47,13 @@ public class TicTacToeMethods {
     // Tested by TicTacToeTestCheckRowWin
     public static int checkRowWin(int rowNumber, int [][] board) {
         // You will need to change this return value
-        return 0;
+        int placeholder = board[rowNumber][0];
+        for (int i = 0; i < board[rowNumber].length; i++) {
+             if (board[rowNumber][i] != placeholder){
+                 return 0;
+             }
+        }
+        return placeholder;
     }
     
 
