@@ -4,10 +4,14 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 // THIS IS WHERE YOU WILL DO ALL OF YOUR WORK!!  DO NOT MODIFY ANY OTHER FILE
-public class TicTacToeMethods {    
+
+/**
+ * @author linuxx/Rudy Peralta
+ */
+public class TicTacToeMethods {
     // For all these tests, you can assume a board of size [3][3].
     // Only for extra credit do you need to handle generic sizes.
-    
+
     // Sets all the elements in board to zero
     // tested by the unit test TicTacToeTestClearBoard    
     public static void clearBoard(int [][] board) {
@@ -17,7 +21,7 @@ public class TicTacToeMethods {
             }
         }
     }
-    
+
     // Walks through the board, if there is any entry with value 0
     // then return false - there is no tie
     // Return true only if all entries in board are not equal to zero
@@ -34,7 +38,7 @@ public class TicTacToeMethods {
         return true;
     }
 
-    
+
     // Walks through the row number passed in and checks to see if all
     // of the values are the same.  If they are, return that number.
     // If they are not all the same, return 0
@@ -52,9 +56,9 @@ public class TicTacToeMethods {
         // You will need to change this return value
         int placeholder = board[rowNumber][0];
         for (int i = 0; i < board[rowNumber].length; i++) {
-             if (board[rowNumber][i] != placeholder){
-                 return 0;
-             }
+            if (board[rowNumber][i] != placeholder) {
+                return 0;
+            }
 
         }
         return placeholder;
