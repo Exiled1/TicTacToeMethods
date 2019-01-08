@@ -76,7 +76,14 @@ public class TicTacToeMethods {
      * Calling checkColWin(1, board) for the above board returns 1.
      */
     public static int checkColWin(int col, int[][] board) {
-        return 0;
+        int placeholder = board[0][col];
+
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][col] != placeholder && placeholder != 0) {
+                return 0;
+            }
+        }
+        return placeholder;
     }
 
     /**
@@ -90,8 +97,15 @@ public class TicTacToeMethods {
      * location in the board array.
      */
     public static boolean isValidLocation(int row, int column, int[][] board) {
-
-        return false;
+        //First if checks to see if the row & column are less than 0 (out of bounds), or greater than the board length - 1,
+        //(which is also out of bounds)
+        if ((row < 0 || column < 0) || (row > board.length - 1 || column > board.length - 1)) {
+            return false;
+        } else if (board[row][column] != 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -115,30 +129,42 @@ public class TicTacToeMethods {
      */
     public static String rowToString(int row, int[][] board) {
         String strBoard = Arrays.toString(board[row]);
-        System.out.println(strBoard);
-        String placeholder = strBoard;
-
-        placeholder = strBoard.replace("1", "X");
-        placeholder = placeholder.replace("2", "O");
-        placeholder = placeholder.replace(",", "|");
-        placeholder = placeholder.replace(" ", "");
-        placeholder = placeholder.replace("0", " ");
-        placeholder = placeholder.replace("[", "");
-        placeholder = placeholder.replace("]", "");
+        String placeholder = "";
+        //TODO: Optimize all of these placeholder.replace calls...
+        //I use string.replace to take out all of the fluff instead of using substrings. If theres a better way for it
+        //without using things we haven't learned that would be amazing to know about. :)
+        placeholder = strBoard.replace("1", "X")
+                .replace("2", "O").replace(",", "|")
+                .replace(" ", "").replace("0", " ")
+                .replace("[", "").replace("]", "");
         System.out.println(placeholder);
 
-        return placeholder;
+        return placeholder; //The placeholder after all the .replace operations is the final product for a completed board.
     }
 
-
+    /**
+     * @param value
+     * @return The value passed in will be a 0, 1, or 2.
+     * If 0 is passed in it returns a " "
+     * If 1: This returns "X"
+     * If 2: this returns "O"
+     * <p>
+     * This could use a switch statement, but I'll use if and returns for now.
+     */
     public static String valueToLetter(int value) {
+        //Cleaner than multiple if statements or ternary operators checking for the same cases.
+        switch (value) {
+            case 0:
+                return " ";
+            case 1:
+                return "X";
+            case 2:
+                return "O";
+        }
         return "";
     }
 
     public static void main(String[] args) {
         // You don't have to do anything in main.  You just need to run the unit tests.
-        int[][] boards = {{0, 1, 2}, {1, 2, 0}, {2, 1, 0}};
-        rowToString(1, boards);
     }
-
 }
