@@ -1,5 +1,8 @@
 package ticTacToeMethods;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 // THIS IS WHERE YOU WILL DO ALL OF YOUR WORK!!  DO NOT MODIFY ANY OTHER FILE
 public class TicTacToeMethods {    
     // For all these tests, you can assume a board of size [3][3].
@@ -69,7 +72,7 @@ public class TicTacToeMethods {
      * [1, |1|, 1]
      * [2, |1|, 2]
      * [2, |1|, 2]
-     * <p>
+     *
      * Calling checkColWin(1, board) for the above board returns 1.
      */
     public static int checkColWin(int col, int[][] board) {
@@ -91,9 +94,40 @@ public class TicTacToeMethods {
         return false;
     }
 
-
+    /**
+     * @param row
+     * @param board
+     * @return Transforms a single row of the board to a String. It won't print anything.
+     * Between each character there should be a "|" added. There aren't any spaces around the "|"
+     * in that string.
+     * Ex:
+     * <p>
+     * [2,1,0]
+     * [2,0,1]
+     * [1,1,0]
+     * <p>
+     * would return for rowToString(0, board):
+     * "o|x| "
+     * rowToString(1, board):
+     * "o| |x"
+     * rTS(2,board):
+     * "x|x| "
+     */
     public static String rowToString(int row, int[][] board) {
-        return "";
+        String strBoard = Arrays.toString(board[row]);
+        System.out.println(strBoard);
+        String placeholder = strBoard;
+
+        placeholder = strBoard.replace("1", "X");
+        placeholder = placeholder.replace("2", "O");
+        placeholder = placeholder.replace(",", "|");
+        placeholder = placeholder.replace(" ", "");
+        placeholder = placeholder.replace("0", " ");
+        placeholder = placeholder.replace("[", "");
+        placeholder = placeholder.replace("]", "");
+        System.out.println(placeholder);
+
+        return placeholder;
     }
 
 
@@ -103,6 +137,8 @@ public class TicTacToeMethods {
 
     public static void main(String[] args) {
         // You don't have to do anything in main.  You just need to run the unit tests.
+        int[][] boards = {{0, 1, 2}, {1, 2, 0}, {2, 1, 0}};
+        rowToString(1, boards);
     }
 
 }
