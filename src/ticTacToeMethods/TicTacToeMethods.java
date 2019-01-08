@@ -52,15 +52,57 @@ public class TicTacToeMethods {
              if (board[rowNumber][i] != placeholder){
                  return 0;
              }
+
         }
         return placeholder;
     }
-    
 
-    
-    public static void main(String [] args ) {       
+
+    /**
+     * @param col
+     * @param board
+     * @return Checks if there are three numbers with the same value in a column. If there
+     * are three numbers with the same value in a column. If there are, it returns
+     * that number. If there aren't, it returns 0. It's okay that if there are all
+     * 0's it returns 0. EX:
+     * 0   1   2
+     * [1, |1|, 1]
+     * [2, |1|, 2]
+     * [2, |1|, 2]
+     * <p>
+     * Calling checkColWin(1, board) for the above board returns 1.
+     */
+    public static int checkColWin(int col, int[][] board) {
+        return 0;
+    }
+
+    /**
+     * @param row
+     * @param column
+     * @param board
+     * @return This method will eventually be used to determine if the row and the column
+     * the user wants to add an X or an O is valid. If it's valid it returns true.
+     * A valid location is in bounds, and has a zero at that location in the board
+     * array. An invalid location is out of bounds or does not have a zero at that
+     * location in the board array.
+     */
+    public static boolean isValidLocation(int row, int column, int[][] board) {
+
+        return false;
+    }
+
+
+    public static String rowToString(int row, int[][] board) {
+        return "";
+    }
+
+
+    public static String valueToLetter(int value) {
+        return "";
+    }
+
+    public static void main(String[] args) {
         // You don't have to do anything in main.  You just need to run the unit tests.
     }
-    
 
 }
